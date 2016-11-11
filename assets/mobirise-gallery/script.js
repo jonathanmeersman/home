@@ -91,7 +91,6 @@
     })();
     /* Masonry Grid */
     $(document).on('add.cards change.cards', function(event) {
-        var $section = $(event.target);
 
         function setImgSrc(item) {
             var $img = item.find('img');
@@ -104,10 +103,13 @@
                 });
             }
             return videoId;
-        }
+        };
 
+        var $section = $(event.target),
+            allItem = $section.find('.mbr-gallery-filter-all');
         if (!$section.hasClass('mbr-slider-carousel')) return;
         var filterList = [];
+
         $section.find('.mbr-gallery-item').each(function(el) {
             var tagsAttr = ($(this).attr('data-tags')||"").trim();
             var tagsList = tagsAttr.split(',');
@@ -119,14 +121,12 @@
             })
         })
         if ($section.find('.mbr-gallery-filter').length > 0 && $(event.target).find('.mbr-gallery-filter').hasClass('gallery-filter-active')) {
-            var filterHtml = '<ul><li class="mbr-gallery-filter-all active">All</li>';
-
-            $section.find('.mbr-gallery-filter').html('');
+            var filterHtml = '';
+            $section.find('.mbr-gallery-filter ul li:not(li:eq(0))').remove();
             filterList.map(function(el) {
                 filterHtml += '<li>' + el + '</li>'
-            })
-            filterHtml += '</ul>';
-            $section.find('.mbr-gallery-filter').append(filterHtml);
+            });
+            $section.find('.mbr-gallery-filter ul').append(allItem).append(filterHtml);
             $section.on('click', '.mbr-gallery-filter li', function(e) {
                 $li = $(this);
                 $li.parent().find('li').removeClass('active')
@@ -180,6 +180,8 @@
                 $msnr.on('filter', function() {
                         $msnr.masonry('reloadItems');
                         $msnr.masonry('layout');
+                        // update parallax backgrounds
+                        $(window).trigger('update.parallax')
                     }.bind(this, $msnr))
                     // layout Masonry after each image loads
                 $msnr.imagesLoaded().progress(function() {
