@@ -930,6 +930,7 @@ h6,
 }
 
 
+
 #ext_menu-g .hide-buttons .nav-btn {
   display: none !important;
 }
@@ -1003,6 +1004,11 @@ h6,
 }
 #header3-h H3 {
   font-size: 20px;
+}
+#gallery2-1r LI {
+  font-family: 'Source Sans Pro', sans-serif;
+  font-size: 10px;
+  color: #000000;
 }
 #header3-j .mbr-section-title,
 #header3-j .mbr-section-subtitle {
