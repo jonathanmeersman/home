@@ -1093,6 +1093,10 @@ h6,
 #header3-l H3 {
   font-size: 20px;
 }
+#content1-1u P {
+  text-align: center;
+  font-size: 10px;
+}
 #header3-n .mbr-section-title,
 #header3-n .mbr-section-subtitle {
   text-align: center;
@@ -1354,15 +1358,19 @@ h6,
 #header3-x H3 {
   font-size: 20px;
 }
-#content1-14 P {
-  text-align: center;
-  color: #5b5b5b;
+#msg-box5-20 H3 {
+  text-align: right;
+}
+#msg-box5-20 P {
   font-size: 10px;
 }
-#header3-z .mbr-section-title,
-#header3-z .mbr-section-subtitle {
+#msg-box5-22 P {
+  font-size: 10px;
+}
+#header3-1w .mbr-section-title,
+#header3-1w .mbr-section-subtitle {
   text-align: center;
 }
-#header3-z SMALL {
+#header3-1w SMALL {
   font-size: 11px;
 }
